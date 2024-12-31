@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            transition: all 0.3s ease;
+            background-color: black;
+            color: aliceblue;
+            padding: 0 30px;
+            display: inline;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #152b41;
+            padding: 10px 20px;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .profile {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: none;
+            z-index: 10;
+            width: 200px;
+            color: black;
+        }
+
+        .dropdown.active {
+            display: block;
+        }
+
+        .dropdown p {
+            margin: 10px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown p:last-child {
+            border-bottom: none;
+        }
+
+        /* Header and Course Styling */
+        .header {
+            background-color:whitesmoke;
+            display: flex;
+            padding-bottom: 50px;
+            padding: 20px 30px;
+            color: black;
+            margin: 20px 20px;
+        }
+        .header img {
+            padding: 30px 50px;
+            border-radius: 8%;
+        }
+        .header h2 .he-part h4 {
+            padding: 30px;
+        }
+        .he-part {
+            padding-left: 40px;
+            background-color: black;
+            color: white;
+        }
+        .he-img {
+            background-color: black;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 25%;
+            background-color:  black;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: aliceblue;
+        }
+
+        .video-item {
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+        }
+
+        .video-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .completed-status {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        iframe {
+            padding: 10px 50px;
+            width: 90%;
+            height: 80vh;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content {
+            padding-top: 10px;
+            display: flex;
+            height: 100%;
+            width: 100%;
+            background-color:  #152b41;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon"> <!-- Replace home-icon.png with the correct image or icon -->
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+                <p>Course Progress</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="he-img"><img src="./Pictures/html-1.jpeg" alt="html"></div>
+        <div class="he-part">
+            <h2>HTML Course</h2>
+            <h4>Description:</h4>
+            <p>This course introduces you to the basics of HTML, the core language for building webpages. You'll learn how to create simple web pages, structure content with headings, paragraphs, and lists, and use text formatting, images, tables, and forms. The course also covers creating hyperlinks, embedding multimedia, and implementing basic responsive design for mobile-friendly websites. By the end, you'll have the skills to create well-structured, functional websites from scratch.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/qz0aGYrrlhU', 1)">
+                Video 1: Introduction <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/UB1O30fR-EE', 2)">
+                Video 2: HTML Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/DPnqb74Smug', 3)">
+                Video 3: HTML Tags <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/ZlfIVEy_YOA', 4)">
+                Video 4: Forms in HTML <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/WX8kK3ftTHw', 5)">
+                Video 5: Multimedia <span id="status5"></span>
+            </div>
+        </div>
+
+        <!-- Video Player -->
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/qz0aGYrrlhU" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Toggle dropdown visibility
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Load video and update status
+        function loadVideo(url, videoNumber) {
+            // Update iframe source
+            document.getElementById('videoPlayer').src = url;
+
+            // Mark progress as completed
+            const statusText = document.getElementById(`status${videoNumber}`);
+            if (statusText) {
+                statusText.innerHTML = '<span class="completed-status">Completed</span>';
+            }
+        }
+    </script>
+</body>
+</html>
