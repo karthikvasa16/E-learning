@@ -83,13 +83,17 @@
             color: black;
             margin: 20px;
             border-radius: 10px;
+            align-items: flex-start; /* Aligns items at the top */
         }
 
         .header img {
+            margin-top: 40px;
             width: 100%;
             max-width: 200px;
             border-radius: 8%;
+            position: static; /* Keeps image in its original place */
         }
+
 
         .he-part {
             flex: 1;
@@ -159,11 +163,16 @@
 
         iframe {
             width: 100%;
-            max-width: 900px;
-            height: 50vh;
+            max-width: 1000px;
+            height: 80vh;
             border: none;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .toggle-text {
+            cursor: pointer;
+            color: lightblue;
+            font-weight: bold;
         }
 
         /* Responsive Design */
@@ -229,7 +238,13 @@
         <div class="he-part">
             <h2>HTML Course</h2>
             <h4>Description:</h4>
-            <p>This course introduces you to the basics of HTML, the core language for building webpages. You'll learn how to create simple web pages, structure content with headings, paragraphs, and lists, and use text formatting, images, tables, and forms. The course also covers creating hyperlinks, embedding multimedia, and implementing basic responsive design for mobile-friendly websites. By the end, you'll have the skills to create well-structured, functional websites from scratch.</p>
+            <p id="description">
+                This course introduces you to the basics of HTML, the core language for building webpages. You'll learn how to create simple web pages, structure content with headings, paragraphs, and lists, and use text formatting, images, tables, and forms. 
+                <span id="extra-text" style="display: none;">
+                    The course also covers creating hyperlinks, embedding multimedia, and implementing basic responsive design for mobile-friendly websites. By the end, you'll have the skills to create well-structured, functional websites from scratch.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
         </div>
     </div>
 
@@ -262,6 +277,20 @@
     </div>
 
     <script>
+        function toggleText() {
+            const extraText = document.getElementById('extra-text');
+            const toggleButton = extraText.nextElementSibling;
+
+            if (extraText.style.display === 'none') {
+                // Show full text
+                extraText.style.display = 'inline';
+                toggleButton.textContent = 'Show Less';
+            } else {
+                // Hide extra text
+                extraText.style.display = 'none';
+                toggleButton.textContent = 'Show More';
+            }
+        }
         function toggleDropdown() {
             const dropdown = document.getElementById('profileDropdown');
             dropdown.classList.toggle('active');
