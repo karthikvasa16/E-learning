@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Course</title>
+    <style>
+         body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: aliceblue;
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #152b41;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.home-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.dropdown {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    display: none;
+    z-index: 10;
+    width: 200px;
+    color: black;
+}
+
+.dropdown.active {
+    display: block;
+}
+
+.dropdown p {
+    margin: 10px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+    background-color: whitesmoke;
+    color: black;
+    margin: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+.header img {
+    margin-top: 40px;
+    width: 100%;
+    max-width: 200px;
+    border-radius: 8%;
+    position: static;
+}
+
+.he-part {
+    flex: 1;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #152b41;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1 1 300px;
+    max-width: 300px;
+    background-color: black;
+    padding: 20px;
+    box-sizing: border-box;
+    color: aliceblue;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.video-item {
+    cursor: pointer;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+.video-item:hover {
+    background-color: #f0f0f0;
+}
+
+.completed-status {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.content {
+    flex: 3 1 600px;
+    display: flex;
+    justify-content: center;
+}
+
+iframe {
+    width: 100%;
+    max-width: 1000px;
+    height: 80vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-text {
+    cursor: pointer;
+    color: lightblue;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .sidebar {
+        max-width: 100%;
+        flex: 1 1 100%;
+        order: 2;
+    }
+
+    .content {
+        flex: 1 1 100%;
+        order: 1;
+    }
+
+    iframe {
+        height: 40vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar h1 {
+        font-size: 1.2rem;
+    }
+
+    .home-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+    iframe {
+        height: 30vh;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+                <p>Course Progress</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="header">
+        <img src="./Pictures/python.jpeg" alt="Python">
+        <div class="he-part">
+            <h2>Python Course</h2>
+            <h4>Description:</h4>
+            <p id="description">
+                Dive into the Python programming language, a versatile and beginner-friendly language widely used for web development, data analysis, and artificial intelligence. 
+                <span id="extra-text" style="display: none;">
+                    This course covers Python basics, including syntax, data types, and control structures, before advancing to functions, modules, file handling, and object-oriented programming. Perfect for new and intermediate developers.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/_uQrJ0TkZlc', 1)">
+                Video 1: Introduction to Python <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/kqtD5dpn9C8', 2)">
+                Video 2: Python Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/HGOBQPFzWKo', 3)">
+                Video 3: Data Structures <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/rfscVS0vtbw', 4)">
+                Video 4: Functions in Python <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/JJmcL1N2KQs', 5)">
+                Video 5: Object-Oriented Programming <span id="status5"></span>
+            </div>
+        </div>
+
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/_uQrJ0TkZlc" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+           function toggleText() {
+    const extraText = document.getElementById('extra-text');
+    const toggleButton = extraText.nextElementSibling;
+
+    if (extraText.style.display === 'none') {
+        // Show full text
+        extraText.style.display = 'inline';
+        toggleButton.textContent = 'Show Less';
+    } else {
+        // Hide extra text
+        extraText.style.display = 'none';
+        toggleButton.textContent = 'Show More';
+    }
+}
+
+function toggleDropdown() {
+    const dropdown = document.getElementById('profileDropdown');
+    dropdown.classList.toggle('active');
+}
+
+function loadVideo(url, videoNumber) {
+    document.getElementById('videoPlayer').src = url;
+    const statusText = document.getElementById(`status${videoNumber}`);
+    if (statusText) {
+        statusText.innerHTML = '<span class="completed-status">Completed</span>';
+    }
+}
+
+    </script>
+</body>
+</html>
