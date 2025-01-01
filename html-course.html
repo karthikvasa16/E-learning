@@ -10,12 +10,10 @@
             margin: 0;
             padding: 0;
             display: flex;
-            height: 100vh;
-            transition: all 0.3s ease;
+            flex-direction: column;
             background-color: black;
             color: aliceblue;
-            padding: 0 30px;
-            display: inline;
+            transition: all 0.3s ease;
         }
 
         /* Navbar Styling */
@@ -31,7 +29,7 @@
 
         .navbar h1 {
             margin: 0;
-            font-size: 24px;
+            font-size: 1.5rem;
         }
 
         .home-icon {
@@ -39,11 +37,6 @@
             height: 30px;
             cursor: pointer;
             margin-right: 10px;
-        }
-
-        .profile {
-            position: relative;
-            cursor: pointer;
         }
 
         .profile img {
@@ -80,46 +73,56 @@
             border-bottom: none;
         }
 
-        /* Header and Course Styling */
+        /* Header Styling */
         .header {
-            background-color:whitesmoke;
             display: flex;
-            padding-bottom: 50px;
-            padding: 20px 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+            background-color: whitesmoke;
             color: black;
-            margin: 20px 20px;
-        }
-        .header img {
-            padding: 30px 50px;
-            border-radius: 8%;
-        }
-        .header h2 .he-part h4 {
-            padding: 30px;
-        }
-        .he-part {
-            padding-left: 40px;
-            background-color: black;
-            color: white;
-        }
-        .he-img {
-            background-color: black;
+            margin: 20px;
+            border-radius: 10px;
         }
 
-        /* Sidebar Styling */
+        .header img {
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8%;
+        }
+
+        .he-part {
+            flex: 1;
+            padding: 20px;
+            background-color: black;
+            color: white;
+            border-radius: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: #152b41;
+            padding: 20px;
+        }
+
+        /* Sidebar */
         .sidebar {
-            width: 25%;
-            background-color:  black;
+            flex: 1 1 300px;
+            max-width: 300px;
+            background-color: black;
             padding: 20px;
             box-sizing: border-box;
+            color: aliceblue;
             overflow-y: auto;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            border-radius: 10px;
         }
 
         .sidebar h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: aliceblue;
         }
 
         .video-item {
@@ -147,27 +150,59 @@
             font-size: 12px;
         }
 
+        /* Video Player */
+        .content {
+            flex: 3 1 600px;
+            display: flex;
+            justify-content: center;
+        }
+
         iframe {
-            padding: 10px 50px;
-            width: 90%;
-            height: 80vh;
+            width: 100%;
+            max-width: 900px;
+            height: 50vh;
             border: none;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .main-content {
-            padding-top: 10px;
-            display: flex;
-            height: 100%;
-            width: 100%;
-            background-color:  #152b41;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .sidebar {
+                max-width: 100%;
+                flex: 1 1 100%;
+                order: 2;
+            }
+
+            .content {
+                flex: 1 1 100%;
+                order: 1;
+            }
+
+            iframe {
+                height: 40vh;
+            }
         }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        @media (max-width: 480px) {
+            .navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .home-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            iframe {
+                height: 30vh;
+            }
         }
     </style>
 </head>
@@ -175,7 +210,7 @@
     <!-- Navbar -->
     <div class="navbar">
         <div onclick="window.location.href='index.html'">
-            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon"> <!-- Replace home-icon.png with the correct image or icon -->
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
         </div>
         <h1>E-Learning Platform</h1>
         <div class="profile" onclick="toggleDropdown()">
@@ -190,18 +225,18 @@
 
     <!-- Header -->
     <div class="header">
-        <div class="he-img"><img src="./Pictures/html-1.jpeg" alt="html"></div>
+        <img src="./Pictures/html-1.jpeg" alt="HTML">
         <div class="he-part">
             <h2>HTML Course</h2>
             <h4>Description:</h4>
-            <p>This course introduces you to the basics of HTML, the core language for building webpages. You'll learn how to create simple web pages, structure content with headings, paragraphs, and lists, and use text formatting, images, tables, and forms. The course also covers creating hyperlinks, embedding multimedia, and implementing basic responsive design for mobile-friendly websites. By the end, you'll have the skills to create well-structured, functional websites from scratch.</p>
+            <p>This course introduces you to the basics of HTML, the core language for building webpages...</p>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
         <!-- Sidebar -->
-        <div class="sidebar" id="sidebar">
+        <div class="sidebar">
             <h2>Video Playlist</h2>
             <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/qz0aGYrrlhU', 1)">
                 Video 1: Introduction <span id="status1"></span>
@@ -227,18 +262,13 @@
     </div>
 
     <script>
-        // Toggle dropdown visibility
         function toggleDropdown() {
             const dropdown = document.getElementById('profileDropdown');
             dropdown.classList.toggle('active');
         }
 
-        // Load video and update status
         function loadVideo(url, videoNumber) {
-            // Update iframe source
             document.getElementById('videoPlayer').src = url;
-
-            // Mark progress as completed
             const statusText = document.getElementById(`status${videoNumber}`);
             if (statusText) {
                 statusText.innerHTML = '<span class="completed-status">Completed</span>';
