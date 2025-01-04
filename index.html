@@ -264,6 +264,21 @@ section.about p {
             const nav = document.querySelector('nav');
             nav.classList.toggle('active');
         }
+        function openCourse(courseName) {
+            const coursePages = {
+                html: 'html-course.html',
+                python: 'python-course.html',
+                java: 'java-course.html',
+                'machine-learning': 'ml-course.html',
+            };
+
+            const coursePage = coursePages[courseName];
+            if (coursePage) {
+                window.location.href = coursePage;
+            } else {
+                alert('Course not found!');
+            }
+        }
     </script>
 </body>
 </html>
