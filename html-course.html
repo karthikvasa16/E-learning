@@ -11,7 +11,6 @@
             padding: 0;
             display: flex;
             flex-direction: column;
-            background-color: black;
             color: aliceblue;
             transition: all 0.3s ease;
         }
@@ -37,6 +36,8 @@
             height: 30px;
             cursor: pointer;
             margin-right: 10px;
+            border-radius: 30%;
+            padding: 10px 10px;
         }
 
         .profile img {
@@ -79,7 +80,7 @@
             flex-wrap: wrap;
             padding: 20px;
             gap: 20px;
-            background-color: whitesmoke;
+            background-color: #4CAF50;
             color: black;
             margin: 20px;
             border-radius: 10px;
@@ -98,8 +99,7 @@
         .he-part {
             flex: 1;
             padding: 20px;
-            background-color: black;
-            color: white;
+            background-color: white;
             border-radius: 10px;
         }
 
@@ -116,12 +116,22 @@
         .sidebar {
             flex: 1 1 300px;
             max-width: 300px;
-            background-color: black;
+            background-color: #4CAF50;
             padding: 20px;
             box-sizing: border-box;
             color: aliceblue;
             overflow-y: auto;
             border-radius: 10px;
+        }
+        .sidebar button{
+            background-color: rgb(30, 106, 220);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 50px;
+            margin-left: 80px;
         }
 
         .sidebar h2 {
@@ -268,6 +278,7 @@
             <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/WX8kK3ftTHw', 5)">
                 Video 5: Multimedia <span id="status5"></span>
             </div>
+            <button>Start Test</button>
         </div>
 
         <!-- Video Player -->
@@ -303,6 +314,7 @@
                 statusText.innerHTML = '<span class="completed-status">Completed</span>';
             }
         }
+        
     </script>
 </body>
 </html>
