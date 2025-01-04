@@ -15,7 +15,6 @@
 .container {
     margin: 0 auto;
     padding: 0 15px;
-    max-width: 1200px;
 }
 
 nav {
@@ -109,9 +108,13 @@ section.courses {
 
 section.courses .course-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 400px));
     gap: 20px;
     margin-top: 20px;
+    justify-content: center;
+}
+.course-container img{
+    height: 100px;
 }
 
 section.courses .course {
@@ -263,21 +266,6 @@ section.about p {
         function toggleMenu() {
             const nav = document.querySelector('nav');
             nav.classList.toggle('active');
-        }
-        function openCourse(courseName) {
-            const coursePages = {
-                html: 'html-course.html',
-                python: 'python-course.html',
-                java: 'java-course.html',
-                'machine-learning': 'ml-course.html',
-            };
-
-            const coursePage = coursePages[courseName];
-            if (coursePage) {
-                window.location.href = coursePage;
-            } else {
-                alert('Course not found!');
-            }
         }
     </script>
 </body>
