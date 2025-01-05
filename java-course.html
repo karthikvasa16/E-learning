@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course</title>
+    <link rel="stylesheet" href="course-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="./Pictures/java.jpeg" alt="Java">
+        <div class="he-part">
+            <h2>Java Course</h2>
+            <h4>Description:</h4>
+            <p id="description">
+                This Java course introduces you to object-oriented programming. You'll learn about variables, data types, control flow, loops, functions, arrays, and classes. 
+                <span id="extra-text" style="display: none;">
+                    The course also covers advanced concepts such as inheritance, polymorphism, interfaces, exception handling, and collections. By the end of this course, you'll be ready to build console-based Java applications and understand the fundamentals of Java development.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
+        </div>
+        <div class="progress-container">
+            <span>Progress:</span>
+            <div class="progress-bar">
+                <span id="progressBar"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/mG4NLNZ37y4?si=18IrhJ8ITGhW_UEJ', 1)">
+                Video 1: Introduction to Java <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/GdzRzWymT4c?si=CpDf79ZrZvGUlMCZ', 2)">
+                Video 2: Java Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/emTgM58TLSw?si=Fp9DGePjHxFANQJm', 3)">
+                Video 3: Control Flow in Java <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/bSrm9RXwBaI?si=b-zYQeKZI8dRXQG0', 4)">
+                Video 4: Object-Oriented Programming in Java <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/5r_ERSm7NKE?si=QpMpvKLULbWp99ic', 5)">
+                Video 5: Exception Handling in Java <span id="status5"></span>
+            </div>
+            <button onclick="window.open('java-test.html', '_blank')">Start Test</button>
+        </div>
+
+        <!-- Video Player -->
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/mG4NLNZ37y4?si=18IrhJ8ITGhW_UEJ" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="course-script.js"></script>
+</body>
+</html>

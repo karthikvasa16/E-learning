@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Course</title>
+    <link rel="stylesheet" href="course-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="./Pictures/python.jpeg" alt="Python">
+        <div class="he-part">
+            <h2>Python Course</h2>
+            <h4>Description:</h4>
+            <p id="description">
+                This Python course introduces you to the basics of programming. You'll learn about variables, data types, loops, functions, and modules. 
+                <span id="extra-text" style="display: none;">
+                    The course also covers advanced topics like file handling, object-oriented programming, exception handling, and working with libraries like NumPy and Pandas. By the end, you'll be ready to create Python scripts and small projects.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
+        </div>
+        <div class="progress-container">
+            <span>Progress:</span>
+            <div class="progress-bar">
+                <span id="progressBar"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/DInMru2Eq6E?si=Ws_2PR_PAfY-qTAd', 1)">
+                Video 1: Introduction to Python <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/woVJ4N5nl_s?si=TVtItBwLMJSkjv-R', 2)">
+                Video 2: Python Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/BVfCWuca9nw?si=YUN_swLEx7sZwls0', 3)">
+                Video 3: Functions in Python <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/aequTxAvQq4?si=HPaeyYr7IGV9s7Sb', 4)">
+                Video 4: File Handling <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/qiSCMNBIP2g?si=-d-ZAVv6U0XxGfUl', 5)">
+                Video 5: Object-Oriented Programming <span id="status5"></span>
+            </div>
+            <button onclick="window.open('python-test.html', '_blank')">Start Test</button>
+        </div>
+
+        <!-- Video Player -->
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/DInMru2Eq6E?si=Ws_2PR_PAfY-qTAd" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="course-script.js"></script>
+</body>
+</html>

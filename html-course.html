@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Course</title>
+    <link rel="stylesheet" href="course-style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="./Pictures/html-1.jpeg" alt="HTML">
+        <div class="he-part">
+            <h2>HTML Course</h2>
+            <h4>Description:</h4>
+            <p id="description">
+                This course introduces you to the basics of HTML, the core language for building webpages. You'll learn how to create simple web pages, structure content with headings, paragraphs, and lists, and use text formatting, images, tables, and forms. 
+                <span id="extra-text" style="display: none;">
+                    The course also covers creating hyperlinks, embedding multimedia, and implementing basic responsive design for mobile-friendly websites. By the end, you'll have the skills to create well-structured, functional websites from scratch.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
+        </div>
+        <div class="progress-container">
+            <span>Progress:</span>
+            <div class="progress-bar">
+                <span id="progressBar"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/it1rTvBcfRg?si=7tU5V0OHx6eIKpPs', 1)">
+                Video 1: Introduction <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/BzYMFd-lQL4?si=HV8C6Oa_J8szQo3B', 2)">
+                Video 2: HTML Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/vIoO52MdZFE?si=4y19QarsNnSM9Zh4', 3)">
+                Video 3: HTML Elements <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/VLeERv_dR6Q?si=x1fNEVEtrlCSlzgn', 4)">
+                Video 4: Forms in HTML <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/tX1h0K_SBTI?si=u26gEdzxoGy3TJdr', 5)">
+                Video 5: Multimedia <span id="status5"></span>
+            </div>
+            <button onclick="window.open('html-test.html', '_blank')">Start Test</button>
+        </div>
+
+        <!-- Video Player -->
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/it1rTvBcfRg?si=7tU5V0OHx6eIKpPs" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script src="course-script.js"></script>
+    
+    
+    
+    
+</body>
+</html>
