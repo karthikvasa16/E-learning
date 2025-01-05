@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .options {
+            margin: 10px 0;
+        }
+
+        .option {
+            background-color: #ddd;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            background-color: #ccc;
+        }
+
+        .option.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .option.correct {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .option.incorrect {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Java Quiz</h1>
+        <form id="quizForm">
+            
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What does JVM stand for?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Java Virtual Machine</button>
+                    <button type="button" class="option" data-answer="B">B) Java Version Machine</button>
+                    <button type="button" class="option" data-answer="C">C) Java Variable Machine</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Which of the following is the default value of a boolean variable in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) true</button>
+                    <button type="button" class="option" data-answer="B">B) false</button>
+                    <button type="button" class="option" data-answer="C">C) null</button>
+                    <button type="button" class="option" data-answer="D">D) 0</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. What does the keyword 'static' mean in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) The variable or method is shared by all instances of the class</button>
+                    <button type="button" class="option" data-answer="B">B) The variable or method can be accessed from any object</button>
+                    <button type="button" class="option" data-answer="C">C) The method cannot be overridden</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. Which of the following is used to define a class in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) class</button>
+                    <button type="button" class="option" data-answer="B">B) define</button>
+                    <button type="button" class="option" data-answer="C">C) object</button>
+                    <button type="button" class="option" data-answer="D">D) create</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. What does the 'super' keyword do in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Refers to the superclass of the current object</button>
+                    <button type="button" class="option" data-answer="B">B) Refers to the current object</button>
+                    <button type="button" class="option" data-answer="C">C) Refers to the parent class constructor</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Which of the following is used to handle exceptions in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) try-catch block</button>
+                    <button type="button" class="option" data-answer="B">B) error handling block</button>
+                    <button type="button" class="option" data-answer="C">C) throw-catch block</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. Which of the following is NOT a primitive data type in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) int</button>
+                    <button type="button" class="option" data-answer="B">B) float</button>
+                    <button type="button" class="option" data-answer="C">C) String</button>
+                    <button type="button" class="option" data-answer="D">D) char</button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. What is the default value of an integer variable in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) 0</button>
+                    <button type="button" class="option" data-answer="B">B) null</button>
+                    <button type="button" class="option" data-answer="C">C) undefined</button>
+                    <button type="button" class="option" data-answer="D">D) NaN</button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. Which of the following is used to declare a method in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) public void methodName()</button>
+                    <button type="button" class="option" data-answer="B">B) void methodName()</button>
+                    <button type="button" class="option" data-answer="C">C) methodName()</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. What is the correct syntax to create an object in Java?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) ClassName objectName = new ClassName();</button>
+                    <button type="button" class="option" data-answer="B">B) objectName = new ClassName();</button>
+                    <button type="button" class="option" data-answer="C">C) new ClassName();</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <div class="error" id="errorMessage">Please answer all questions before submitting!</div>
+
+            <!-- Submit Button -->
+            <button type="button" class="btn-submit" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <div class="result" id="result">
+            <p>Your score is: <span id="score">0</span>/10</p>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            1: "A", 2: "B", 3: "A", 4: "A", 5: "A",
+            6: "A", 7: "C", 8: "A", 9: "A", 10: "A"
+        };
+
+        let userAnswers = {};
+
+        // Highlight selected option
+        document.querySelectorAll('.option').forEach(button => {
+            button.addEventListener('click', function () {
+                let parent = button.closest('.options');
+                parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                button.classList.add('selected');
+                let questionNumber = parent.parentNode.querySelector('p').innerText.split('.')[0];
+                userAnswers[questionNumber] = button.getAttribute('data-answer');
+            });
+        });
+
+        // Submit the quiz
+        function submitQuiz() {
+            // Check if all questions are answered
+            for (let i = 1; i <= 10; i++) {
+                if (!userAnswers[i]) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    return;
+                }
+            }
+
+            // Hide error message if all questions are answered
+            document.getElementById('errorMessage').style.display = 'none';
+
+            let score = 0;
+            document.querySelectorAll('.question').forEach((question, index) => {
+                let questionNumber = index + 1;
+                let correctAnswer = answers[questionNumber];
+                let selectedOption = userAnswers[questionNumber];
+                
+                let options = question.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    if (option.classList.contains('selected')) {
+                        if (option.getAttribute('data-answer') === correctAnswer) {
+                            option.classList.add('correct');
+                            score++;
+                        } else {
+                            option.classList.add('incorrect');
+                        }
+                    } else if (option.getAttribute('data-answer') === correctAnswer) {
+                        option.classList.add('correct');
+                    }
+                });
+            });
+
+            // Show result
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .options {
+            margin: 10px 0;
+        }
+
+        .option {
+            background-color: #ddd;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            background-color: #ccc;
+        }
+
+        .option.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .option.correct {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .option.incorrect {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>HTML Quiz</h1>
+        <form id="quizForm">
+            
+            
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What does HTML stand for?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Hyper Text Markup Language</button>
+                    <button type="button" class="option" data-answer="B">B) Home Tool Markup Language</button>
+                    <button type="button" class="option" data-answer="C">C) Hyperlinks and Text Markup Language</button>
+                    <button type="button" class="option" data-answer="D">D) None of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. What is the correct HTML element for inserting a line break?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) &lt;br&gt;</button>
+                    <button type="button" class="option" data-answer="B">B) &lt;break&gt;</button>
+                    <button type="button" class="option" data-answer="C">C) &lt;lb&gt;</button>
+                    <button type="button" class="option" data-answer="D">D) &lt;line&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Which of the following is NOT an HTML tag?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;div&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;img&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;content&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;p&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. Which of the following HTML attributes is used to define the background color of a webpage?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) bgcolor</button>
+                    <button type="button" class="option" data-answer="B">B) background-color</button>
+                    <button type="button" class="option" data-answer="C">C) bg-color</button>
+                    <button type="button" class="option" data-answer="D">D) color</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. What does the &lt;a&gt; tag define?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Link</button>
+                    <button type="button" class="option" data-answer="B">B) Paragraph</button>
+                    <button type="button" class="option" data-answer="C">C) Heading</button>
+                    <button type="button" class="option" data-answer="D">D) Image</button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. Which tag is used to define an unordered list?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;ul&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;li&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;ol&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;list&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. What is the correct HTML for making a checkbox?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;input type="checkbox"&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;checkbox&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;input checkbox&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;input type="check"&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. Which of these tags is used for defining a table row in HTML?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;tr&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;td&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;th&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;table&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. What tag is used to define an image in HTML?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;image&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;src&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;img&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;pic&gt;</button>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. Which of the following is used to comment in HTML?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">&lt;!-- comment --&gt;</button>
+                    <button type="button" class="option" data-answer="B">&lt;comment&gt;</button>
+                    <button type="button" class="option" data-answer="C">&lt;!-- --&gt;</button>
+                    <button type="button" class="option" data-answer="D">&lt;# comment &gt;</button>
+                </div>
+            </div>
+            <div class="error" id="errorMessage">Please answer all questions before submitting!</div>
+            <!-- Submit Button -->
+            <button type="button" class="btn-submit" onclick="submitQuiz()">Submit</button>
+        </form>
+
+        <div class="result" id="result">
+            <p>Your score is: <span id="score">0</span>/10</p>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            1: "A", 2: "A", 3: "C", 4: "A", 5: "A",
+            6: "A", 7: "A", 8: "A", 9: "C", 10: "A"
+        };
+
+        let userAnswers = {};
+
+        // Highlight selected option
+        document.querySelectorAll('.option').forEach(button => {
+            button.addEventListener('click', function () {
+                let parent = button.closest('.options');
+                parent.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+                button.classList.add('selected');
+                let questionNumber = parent.parentNode.querySelector('p').innerText.split('.')[0];
+                userAnswers[questionNumber] = button.getAttribute('data-answer');
+            });
+        });
+
+        // Submit the quiz
+        function submitQuiz() {
+            // Check if all questions are answered
+            for (let i = 1; i <= 10; i++) {
+                if (!userAnswers[i]) {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    return;
+                }
+            }
+
+            // Hide error message if all questions are answered
+            document.getElementById('errorMessage').style.display = 'none';
+
+            let score = 0;
+            document.querySelectorAll('.question').forEach((question, index) => {
+                let questionNumber = index + 1;
+                let correctAnswer = answers[questionNumber];
+                let selectedOption = userAnswers[questionNumber];
+                
+                let options = question.querySelectorAll('.option');
+                options.forEach(option => {
+                    option.classList.remove('correct', 'incorrect');
+                    if (option.classList.contains('selected')) {
+                        if (option.getAttribute('data-answer') === correctAnswer) {
+                            option.classList.add('correct');
+                            score++;
+                        } else {
+                            option.classList.add('incorrect');
+                        }
+                    } else if (option.getAttribute('data-answer') === correctAnswer) {
+                        option.classList.add('correct');
+                    }
+                });
+            });
+
+            // Show result
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+
+</body>
+</html>

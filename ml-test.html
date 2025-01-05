@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .options {
+            margin: 10px 0;
+        }
+
+        .option {
+            background-color: #ddd;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            background-color: #ccc;
+        }
+
+        .option.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .option.correct {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .option.incorrect {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Machine Learning Quiz</h1>
+        <form id="quizForm">
+            
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What is the primary goal of supervised learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) To learn patterns from data without labels</button>
+                    <button type="button" class="option" data-answer="B">B) To make predictions using labeled data</button>
+                    <button type="button" class="option" data-answer="C">C) To create random models</button>
+                    <button type="button" class="option" data-answer="D">D) To detect anomalies in data</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Which algorithm is commonly used for classification tasks in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Linear Regression</button>
+                    <button type="button" class="option" data-answer="B">B) K-means Clustering</button>
+                    <button type="button" class="option" data-answer="C">C) Decision Trees</button>
+                    <button type="button" class="option" data-answer="D">D) Principal Component Analysis</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Which of the following is a type of unsupervised learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) K-means Clustering</button>
+                    <button type="button" class="option" data-answer="B">B) Support Vector Machines</button>
+                    <button type="button" class="option" data-answer="C">C) Logistic Regression</button>
+                    <button type="button" class="option" data-answer="D">D) Linear Regression</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. What does the term "overfitting" refer to in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) The model performs well on training data but poorly on new, unseen data</button>
+                    <button type="button" class="option" data-answer="B">B) The model performs well on both training and test data</button>
+                    <button type="button" class="option" data-answer="C">C) The model performs poorly on training data</button>
+                    <button type="button" class="option" data-answer="D">D) The model cannot learn from data</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. Which evaluation metric is typically used for classification problems?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Mean Squared Error</button>
+                    <button type="button" class="option" data-answer="B">B) Accuracy</button>
+                    <button type="button" class="option" data-answer="C">C) R-squared</button>
+                    <button type="button" class="option" data-answer="D">D) Adjusted R-squared</button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. What is the main purpose of a neural network in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) To classify data based on the closest cluster</button>
+                    <button type="button" class="option" data-answer="B">B) To simulate how the human brain processes information</button>
+                    <button type="button" class="option" data-answer="C">C) To calculate the mean and variance of data</button>
+                    <button type="button" class="option" data-answer="D">D) To perform linear regression</button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. Which method is commonly used to prevent overfitting in machine learning models?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Cross-validation</button>
+                    <button type="button" class="option" data-answer="B">B) Data augmentation</button>
+                    <button type="button" class="option" data-answer="C">C) Regularization techniques</button>
+                    <button type="button" class="option" data-answer="D">D) All of the above</button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. What is a "confusion matrix" used for in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) To visualize the performance of a regression model</button>
+                    <button type="button" class="option" data-answer="B">B) To evaluate the accuracy of clustering algorithms</button>
+                    <button type="button" class="option" data-answer="C">C) To evaluate the performance of a classification model</button>
+                    <button type="button" class="option" data-answer="D">D) To visualize data distribution</button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. Which technique is used for dimensionality reduction in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Principal Component Analysis (PCA)</button>
+                    <button type="button" class="option" data-answer="B">B) K-means clustering</button>
+                    <button type="button" class="option" data-answer="C">C) Logistic Regression</button>
+                    <button type="button" class="option" data-answer="D">D) Random Forest</button>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. What does "gradient descent" help optimize in machine learning?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Data preprocessing</button>
+                    <button type="button" class="option" data-answer="B">B) Model weights/parameters</button>
+                    <button type="button" class="option" data-answer="C">C) Feature selection</button>
+                    <button type="button" class="option" data-answer="D">D) Hyperparameters tuning</button>
+                </div>
+            </div>
+
+            <div class="error" id="error-message">Please answer all the questions before submitting!</div>
+            
+            <button type="button" class="btn-submit" id="submit-btn">Submit</button>
+        </form>
+
+        <div class="result" id="result-message"></div>
+    </div>
+
+    <script>
+        const options = document.querySelectorAll('.option');
+        const submitBtn = document.getElementById('submit-btn');
+        const errorMessage = document.getElementById('error-message');
+        const resultMessage = document.getElementById('result-message');
+        const quizForm = document.getElementById('quizForm');
+        
+        let userAnswers = {};
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                this.parentElement.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.classList.add('selected');
+                const questionIndex = Array.from(this.closest('.question').parentElement.children).indexOf(this.closest('.question')) + 1;
+                userAnswers[questionIndex] = this.getAttribute('data-answer');
+            });
+        });
+
+        submitBtn.addEventListener('click', function() {
+            if (Object.keys(userAnswers).length !== 10) {
+                errorMessage.style.display = 'block';
+                resultMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'none';
+                resultMessage.style.display = 'block';
+
+                let score = 0;
+                const correctAnswers = {
+                    1: 'B', // Question 1
+                    2: 'C', // Question 2
+                    3: 'A', // Question 3
+                    4: 'A', // Question 4
+                    5: 'B', // Question 5
+                    6: 'B', // Question 6
+                    7: 'D', // Question 7
+                    8: 'C', // Question 8
+                    9: 'A', // Question 9
+                    10: 'B' // Question 10
+                };
+
+                Object.keys(userAnswers).forEach(questionIndex => {
+                    if (userAnswers[questionIndex] === correctAnswers[questionIndex]) {
+                        score++;
+                    }
+                });
+
+                resultMessage.textContent = `You scored ${score} out of 10!`;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .options {
+            margin: 10px 0;
+        }
+
+        .option {
+            background-color: #ddd;
+            border: none;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .option:hover {
+            background-color: #ccc;
+        }
+
+        .option.selected {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .option.correct {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .option.incorrect {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5rem;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.2rem;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Python Quiz</h1>
+        <form id="quizForm">
+            
+            <!-- Question 1 -->
+            <div class="question">
+                <p>1. What is the correct file extension for Python files?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) .py</button>
+                    <button type="button" class="option" data-answer="B">B) .python</button>
+                    <button type="button" class="option" data-answer="C">C) .pt</button>
+                    <button type="button" class="option" data-answer="D">D) .pyt</button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <p>2. Which keyword is used to define a function in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) def</button>
+                    <button type="button" class="option" data-answer="B">B) func</button>
+                    <button type="button" class="option" data-answer="C">C) function</button>
+                    <button type="button" class="option" data-answer="D">D) define</button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <p>3. Which of these data types is immutable in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) List</button>
+                    <button type="button" class="option" data-answer="B">B) Set</button>
+                    <button type="button" class="option" data-answer="C">C) Tuple</button>
+                    <button type="button" class="option" data-answer="D">D) Dictionary</button>
+                </div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <p>4. What does the following expression return: len("Hello")?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) 4</button>
+                    <button type="button" class="option" data-answer="B">B) 5</button>
+                    <button type="button" class="option" data-answer="C">C) 6</button>
+                    <button type="button" class="option" data-answer="D">D) Error</button>
+                </div>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <p>5. Which of the following is used to import a module in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) include</button>
+                    <button type="button" class="option" data-answer="B">B) import</button>
+                    <button type="button" class="option" data-answer="C">C) require</button>
+                    <button type="button" class="option" data-answer="D">D) using</button>
+                </div>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <p>6. What is the output of: print(2 ** 3)?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) 6</button>
+                    <button type="button" class="option" data-answer="B">B) 8</button>
+                    <button type="button" class="option" data-answer="C">C) 9</button>
+                    <button type="button" class="option" data-answer="D">D) 23</button>
+                </div>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <p>7. Which of the following is used to handle exceptions in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) try/except</button>
+                    <button type="button" class="option" data-answer="B">B) catch/handle</button>
+                    <button type="button" class="option" data-answer="C">C) do/except</button>
+                    <button type="button" class="option" data-answer="D">D) error/except</button>
+                </div>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <p>8. How do you create a dictionary in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) {"key": "value"}</button>
+                    <button type="button" class="option" data-answer="B">B) ["key": "value"]</button>
+                    <button type="button" class="option" data-answer="C">C) ("key": "value")</button>
+                    <button type="button" class="option" data-answer="D">D) "key": "value"</button>
+                </div>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <p>9. Which of the following methods is used to add an element to a list in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) insert()</button>
+                    <button type="button" class="option" data-answer="B">B) append()</button>
+                    <button type="button" class="option" data-answer="C">C) add()</button>
+                    <button type="button" class="option" data-answer="D">D) push()</button>
+                </div>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <p>10. What does the range() function do in Python?</p>
+                <div class="options">
+                    <button type="button" class="option" data-answer="A">A) Returns a sequence of numbers</button>
+                    <button type="button" class="option" data-answer="B">B) Creates a list of numbers</button>
+                    <button type="button" class="option" data-answer="C">C) Returns a random number</button>
+                    <button type="button" class="option" data-answer="D">D) Defines the range of a variable</button>
+                </div>
+            </div>
+
+            <div class="error" id="error-message">Please answer all the questions before submitting!</div>
+            
+            <button type="button" class="btn-submit" id="submit-btn">Submit</button>
+        </form>
+
+        <div class="result" id="result-message"></div>
+    </div>
+
+    <script>
+        const options = document.querySelectorAll('.option');
+        const submitBtn = document.getElementById('submit-btn');
+        const errorMessage = document.getElementById('error-message');
+        const resultMessage = document.getElementById('result-message');
+        const quizForm = document.getElementById('quizForm');
+        
+        let userAnswers = {};
+
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from other options
+                this.parentElement.querySelectorAll('.option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                const questionIndex = Array.from(this.closest('.question').parentElement.children).indexOf(this.closest('.question')) + 1;
+                userAnswers[questionIndex] = this.getAttribute('data-answer');
+            });
+        });
+
+        submitBtn.addEventListener('click', function() {
+            if (Object.keys(userAnswers).length !== 10) {
+                errorMessage.style.display = 'block';
+                resultMessage.style.display = 'none';
+            } else {
+                errorMessage.style.display = 'none';
+                resultMessage.style.display = 'block';
+
+                let score = 0;
+                const correctAnswers = {
+                    1: 'A', // Question 1
+                    2: 'A', // Question 2
+                    3: 'C', // Question 3
+                    4: 'B', // Question 4
+                    5: 'B', // Question 5
+                    6: 'B', // Question 6
+                    7: 'A', // Question 7
+                    8: 'A', // Question 8
+                    9: 'B', // Question 9
+                    10: 'A' // Question 10
+                };
+
+                Object.keys(userAnswers).forEach(questionIndex => {
+                    if (userAnswers[questionIndex] === correctAnswers[questionIndex]) {
+                        score++;
+                    }
+                });
+
+                resultMessage.textContent = `You scored ${score} out of 10!`;
+            }
+        });
+    </script>
+</body>
+</html>
+

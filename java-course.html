@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            color: aliceblue;
+            transition: all 0.3s ease;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-right: 10px;
+            border-radius: 30%;
+            padding: 10px 10px;
+        }
+
+        .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            display: none;
+            z-index: 10;
+            width: 200px;
+            color: black;
+        }
+
+        .dropdown.active {
+            display: block;
+        }
+
+        .dropdown p {
+            margin: 10px;
+            padding: 5px 10px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dropdown p:last-child {
+            border-bottom: none;
+        }
+
+        /* Header Styling */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+            background-color: #4CAF50;
+            color: black;
+            margin: 20px;
+            border-radius: 10px;
+            align-items: flex-start; /* Aligns items at the top */
+        }
+
+        .header img {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 200px;
+            border-radius: 8%;
+            position: static; /* Keeps image in its original place */
+        }
+
+        .header .progress-container {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background-color: white; /* Blue background */
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .progress-bar span {
+            display: block;
+            height: 100%;
+            background-color: rgb(30, 106, 220);
+            width: 0%; /* Starts at 0% */
+            border-radius: 5px;
+        }
+
+        .he-part {
+            flex: 1;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: white;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1 1 300px;
+            max-width: 300px;
+            background-color: #4CAF50;
+            padding: 20px;
+            box-sizing: border-box;
+            color: aliceblue;
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+        .sidebar button{
+            background-color: rgb(30, 106, 220);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 80px;
+            margin-left: 80px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .video-item {
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+        }
+
+        .video-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .completed-status {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        /* Video Player */
+        .content {
+            flex: 3 1 600px;
+            display: flex;
+            justify-content: center;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 1000px;
+            height: 70vh;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .toggle-text {
+            cursor: pointer;
+            color: lightblue;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .sidebar {
+                max-width: 100%;
+                flex: 1 1 100%;
+                order: 2;
+            }
+
+            .content {
+                flex: 1 1 100%;
+                order: 1;
+            }
+
+            iframe {
+                height: 40vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar h1 {
+                font-size: 1.2rem;
+            }
+
+            .home-icon {
+                width: 25px;
+                height: 25px;
+            }
+
+            iframe {
+                height: 30vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div onclick="window.location.href='index.html'">
+            <img class="home-icon" src="./Pictures/home.png" alt="Home Icon">
+        </div>
+        <h1>E-Learning Platform</h1>
+        <div class="profile" onclick="toggleDropdown()">
+            <img src="./Pictures/profile.jpeg" alt="Profile Picture">
+            <div class="dropdown" id="profileDropdown">
+                <p>Name: Naga Karthik</p>
+                <p>Email: karthik12@gmail.com</p>
+                <p>Course Progress</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+        <img src="./Pictures/java.jpeg" alt="Java">
+        <div class="he-part">
+            <h2>Java Course</h2>
+            <h4>Description:</h4>
+            <p id="description">
+                This Java course introduces you to object-oriented programming. You'll learn about variables, data types, control flow, loops, functions, arrays, and classes. 
+                <span id="extra-text" style="display: none;">
+                    The course also covers advanced concepts such as inheritance, polymorphism, interfaces, exception handling, and collections. By the end of this course, you'll be ready to build console-based Java applications and understand the fundamentals of Java development.
+                </span>
+                <span class="toggle-text" onclick="toggleText()">Show More</span>
+            </p>
+        </div>
+        <div class="progress-container">
+            <span>Progress:</span>
+            <div class="progress-bar">
+                <span id="progressBar"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Video Playlist</h2>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/J0gYCk-gQ0k', 1)">
+                Video 1: Introduction to Java <span id="status1"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/Sj-KbcJX0zM', 2)">
+                Video 2: Java Basics <span id="status2"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/rT-jGoBOCHc', 3)">
+                Video 3: Control Flow in Java <span id="status3"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/1odQTGyjxVo', 4)">
+                Video 4: Object-Oriented Programming in Java <span id="status4"></span>
+            </div>
+            <div class="video-item" onclick="loadVideo('https://www.youtube.com/embed/T_TU4IBnkjM', 5)">
+                Video 5: Exception Handling in Java <span id="status5"></span>
+            </div>
+            <button onclick="window.open('java-test.html', '_blank')">Start Test</button>
+        </div>
+
+        <!-- Video Player -->
+        <div class="content">
+            <iframe id="videoPlayer" src="https://www.youtube.com/embed/J0gYCk-gQ0k" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        let completedVideos = 0;
+        const totalVideos = 5;
+    
+        // Load progress from localStorage when the page loads
+        window.onload = function () {
+            completedVideos = localStorage.getItem('completedVideos') ? parseInt(localStorage.getItem('completedVideos')) : 0;
+            updateProgressBar();
+            updateVideoStatuses();
+        };
+    
+        // Toggle the extra description text
+        function toggleText() {
+            const extraText = document.getElementById('extra-text');
+            const toggleButton = extraText.nextElementSibling;
+    
+            if (extraText.style.display === 'none') {
+                extraText.style.display = 'inline';
+                toggleButton.textContent = 'Show Less';
+            } else {
+                extraText.style.display = 'none';
+                toggleButton.textContent = 'Show More';
+            }
+        }
+    
+        // Toggle profile dropdown
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.classList.toggle('active');
+        }
+    
+        // Load the video and mark it as completed
+        function loadVideo(url, videoNumber) {
+            document.getElementById('videoPlayer').src = url;
+            const statusText = document.getElementById(`status${videoNumber}`);
+            if (statusText) {
+                statusText.innerHTML = '<span class="completed-status">Completed</span>';
+            }
+    
+            completedVideos++;
+            updateProgressBar();
+            saveProgress();
+        }
+    
+        // Update the progress bar
+        function updateProgressBar() {
+            const progressPercentage = (completedVideos / totalVideos) * 100;
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = `${progressPercentage}%`;
+        }
+    
+        // Save the progress in localStorage
+        function saveProgress() {
+            localStorage.setItem('completedVideos', completedVideos);
+        }
+    
+        // Update the video statuses based on progress
+        function updateVideoStatuses() {
+            for (let i = 1; i <= totalVideos; i++) {
+                const statusText = document.getElementById(`status${i}`);
+                if (completedVideos >= i) {
+                    statusText.innerHTML = '<span class="completed-status">Completed</span>';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
